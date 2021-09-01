@@ -48,8 +48,7 @@ if args.dev:
     if dev_env_file.exists():
         print("Launching dev environment...")
         subprocess.Popen(
-            'docker compose up --build -d',
-            shell=True,
+            dev_env_file,
             stdout=sys.stdout,
             stderr=sys.stderr,
         ).wait()
