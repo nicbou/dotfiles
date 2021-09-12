@@ -23,12 +23,23 @@ dev_env_file = project_dir / "scripts/dev-env.sh"
 assert project_dir.exists(), f"{project_dir} does not exist"
 os.chdir(project_dir)
 
+if args.dev:
+    if dev_env_file.exists():
+        print("Launching dev environment...")
+        subprocess.Popen(
+            dev_env_file,
+            stdout=sys.stdout,
+            stderr=sys.stderr,
+        ).wait()
+    else:
+        raise Exception("No suitable way to launch the dev environment")
 
 if args.start:
     if docker_compose_file.exists():
         is_docker_up = lambda: subprocess.Popen('docker stats --no-stream'.split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).wait() == 0
         if not is_docker_up():
             print("Starting docker", end='', flush=True)
+            os.system('open --background -a Docker')
             while not is_docker_up():
                 time.sleep(1)
                 print(".", end='', flush=True)
@@ -43,17 +54,6 @@ if args.start:
         ).wait()
     else:
         raise Exception("No suitable way to start the project")
-
-if args.dev:
-    if dev_env_file.exists():
-        print("Launching dev environment...")
-        subprocess.Popen(
-            dev_env_file,
-            stdout=sys.stdout,
-            stderr=sys.stderr,
-        ).wait()
-    else:
-        raise Exception("No suitable way to launch the dev environment")
 
 # We can't change the cwd of the parent shell, so we start another shell in that directory
 os.system('bash -l')
