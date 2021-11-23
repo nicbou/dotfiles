@@ -22,6 +22,10 @@ Opens a specific project, starting the project and development environment if ne
 
 `-s` will start the project if it has a Docker config.
 
+`-k` will kill other running Docker containers before starting the project.
+
+'-S' is the same as '-sdk'
+
 ### The `alert` command
 
 `alert "Hello world"`
