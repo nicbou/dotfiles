@@ -4,5 +4,13 @@ function alert {
 }
 
 function proxy {
-    ssh -D 9000 -p2200 root@home.nicolasbouliane.com
+    is_proxy_on=$(networksetup -getsocksfirewallproxy wi-fi | grep "No")
+    if [ -n "$is_proxy_on" ]; then
+        echo "Turning proxy on"
+        sudo networksetup -setsocksfirewallproxystate wi-fi on
+        ssh -D 9000 -p2200 root@home.nicolasbouliane.com
+    else
+        echo "Turning proxy off"
+        sudo networksetup -setsocksfirewallproxystate wi-fi off
+    fi
 }
