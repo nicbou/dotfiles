@@ -5,7 +5,7 @@ function alert {
 
 function proxy {
     is_proxy_on=$(networksetup -getsocksfirewallproxy wi-fi | grep "No")
-    if [ -n "$is_proxy_on" ]; then
+    if [ -n "$is_proxy_on" ] | [ "$1" == "on" ]; then
         echo "Turning proxy on"
         sudo networksetup -setsocksfirewallproxystate wi-fi on
         ssh -D 9000 -p2200 root@home.nicolasbouliane.com
