@@ -7,6 +7,10 @@ alias dcl="docker-compose logs -f"
 alias dcps="docker-compose ps"
 alias dce="docker-compose exec"
 
+alias gits="git status"
+alias gitd="git diff"
+alias gitc="git commit"
+
 alias touchbar="sudo killall TouchBarServer"
 
 alias aab="project AllAboutBerlin"
