@@ -8,9 +8,7 @@ Useful scripts and configs for my Macbook.
 
 * Sets the PS1 variable (what appears before the commands you type) to something useful.
 * Enables terminal colours
-* Adds a few useful aliases:
-    * dcmp for docker-compose
-    * proxy for an SSH proxy to my home server
+* Adds a few useful aliases
 
 ### The `project` command
 
@@ -18,13 +16,13 @@ Useful scripts and configs for my Macbook.
 
 Opens a specific project, starting the project and development environment if needed. Call `project -h` for more information.
 
-`-d` will run `./scripts/dev-env.sh` if it exists.
+`-d` will run `./scripts/dev-env.sh` if it exists. This is meant to start the dev environment (text editor, IDE, etc.)
 
-`-s` will start the project if it has a Docker config.
+`-s` starts the project if it has a `docker-compose.yml` file.
 
 `-k` will kill other running Docker containers before starting the project.
 
-'-S' is the same as '-sdk'
+`-S` is the same as `-sdk`.
 
 ### The `alert` command
 
