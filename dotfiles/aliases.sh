@@ -14,6 +14,8 @@ alias gitc="git commit"
 alias touchbar="sudo killall TouchBarServer"
 
 alias aab="project AllAboutBerlin"
+alias aabs="project AllAboutBerlinStatic"
+alias df="project dotfiles"
 alias hs="project HomeServer"
 alias nb="project NicolasBouliane3"
 alias tl="project Timeline"
