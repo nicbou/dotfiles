@@ -49,9 +49,16 @@ if args.kill_others or args.start_all:
         stderr=sys.stderr,
     ).wait()
 
+
+def is_docker_up():
+    return subprocess.Popen(
+        'docker stats --no-stream'.split(),
+        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL
+    ).wait() == 0
+
+
 if args.start or args.start_all:
     if docker_compose_file.exists():
-        is_docker_up = lambda: subprocess.Popen('docker stats --no-stream'.split(), stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).wait() == 0
         if not is_docker_up():
             print("Starting docker", end='', flush=True)
             os.system('open --background -a Docker')
