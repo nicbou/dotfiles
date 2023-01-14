@@ -1,11 +1,12 @@
 #!/bin/bash
 
+alias dcd="docker-compose down"
+alias dce="docker-compose exec"
+alias dcl="docker-compose logs -f"
 alias dcmp=docker-compose
+alias dcps="docker-compose ps"
 alias dcubd="docker-compose up --build -d"
 alias dcubdl="docker-compose up --build -d && docker-compose logs -f"
-alias dcl="docker-compose logs -f"
-alias dcps="docker-compose ps"
-alias dce="docker-compose exec"
 
 alias gits="git status"
 alias gitd="git diff"
