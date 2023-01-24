@@ -22,6 +22,13 @@ project_dir = PROJECTS_DIR / args.project_name / 'source'
 docker_compose_file = project_dir / "docker-compose.yml"
 dev_env_file = project_dir / "scripts/dev-env.sh"
 
+# Open *.sublime-project files at the same level as the source/ dir
+try:
+    sublime_project_file = next(project_dir.parent.glob('*.sublime-project'))
+    sublime_project_file.resolve()
+except StopIteration:
+    sublime_project_file = None
+
 assert project_dir.exists(), f"{project_dir} does not exist"
 os.chdir(project_dir)
 
@@ -30,6 +37,13 @@ if args.dev or args.start_all:
         print("Launching dev environment...")
         subprocess.Popen(
             dev_env_file,
+            stdout=sys.stdout,
+            stderr=sys.stderr,
+        ).wait()
+    elif sublime_project_file:
+        print("Launching dev environment...")
+        subprocess.Popen(
+            ['open', str(sublime_project_file.resolve())],
             stdout=sys.stdout,
             stderr=sys.stderr,
         ).wait()
