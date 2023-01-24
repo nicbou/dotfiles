@@ -28,3 +28,9 @@ function proxy {
 function project {
     python3 "$PATH_TO_SCRIPT_DIR/../scripts/project.py" "$@"
 }
+
+# Usage:
+# `webclip screencap.mov output.mp4`
+function webclip {
+    ffmpeg -an -i "$1" -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -level 3 "$2"
+}
