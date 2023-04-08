@@ -18,5 +18,7 @@ alias aab="project AllAboutBerlin"
 alias aabs="project AllAboutBerlinStatic"
 alias df="project dotfiles"
 alias hs="project HomeServer"
-alias nb="project NicolasBouliane3"
+alias nb="project NicolasBouliane4"
 alias tl="project Timeline"
+
+alias beep="afplay /System/Library/Sounds/Blow.aiff -v 10"
