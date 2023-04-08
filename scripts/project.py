@@ -21,6 +21,7 @@ args = parser.parse_args()
 project_dir = PROJECTS_DIR / args.project_name / 'source'
 docker_compose_file = project_dir / "docker-compose.yml"
 dev_env_file = project_dir / "scripts/dev-env.sh"
+start_script_file = project_dir / "scripts/start.sh"
 
 # Open *.sublime-project files at the same level as the source/ dir
 try:
@@ -72,7 +73,14 @@ def is_docker_up():
 
 
 if args.start or args.start_all:
-    if docker_compose_file.exists():
+    if start_script_file.exists():
+        print("Starting project...")
+        subprocess.Popen(
+            start_script_file,
+            stdout=sys.stdout,
+            stderr=sys.stderr,
+        ).wait()
+    elif docker_compose_file.exists():
         if not is_docker_up():
             print("Starting docker", end='', flush=True)
             os.system('open --background -a Docker')
