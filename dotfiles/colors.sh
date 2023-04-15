@@ -16,10 +16,10 @@ RESET="\[$(tput sgr0)\]"
 LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 CLICOLORS=1
 
-# Local machine - yellow hostname
-PS1_LOCAL="${BLACK_TXT}${YELLOW_BG} ⌂ ${WHITE_TXT}${GRAY_BG} ${PWD#"${PWD%/*/*}/"} ${GRAYER_BG} \A ${RESET} "
-
 # Remote machine - red hostname
 PS1_REMOTE="${WHITE_TXT}${RED_BG} \u@\h ${WHITE_TXT}${GRAY_BG} ./\W ${GRAYER_BG} \A ${RESET} "
 
-PS1="${PS1_LOCAL}"
+# Trim the length of the current dir in the PS1
+# Requires a newer version of bash: https://unix.stackexchange.com/a/726992/60930
+export PROMPT_DIRTRIM=3
+PS1="${GRAYER_BG} \A ${BLACK_TXT}${YELLOW_BG} ⌂ ${WHITE_TXT}${GRAY_BG} \w ${RESET} "
