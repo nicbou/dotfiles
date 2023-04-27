@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
+from pathlib import Path
+from shlex import quote
 import argparse
 import os
-import time
-import sys
 import subprocess
-from pathlib import Path
+import sys
+import time
 
 PROJECTS_DIR = Path('~/Documents/Projects').expanduser()
 
@@ -20,7 +21,8 @@ args = parser.parse_args()
 
 project_dir = PROJECTS_DIR / args.project_name / 'source'
 docker_compose_file = project_dir / "docker-compose.yml"
-dev_env_file = project_dir / "scripts/dev-env.sh"
+env_file = project_dir / "scripts/env.sh"
+dev_tools_file = project_dir / "scripts/dev.sh"
 start_script_file = project_dir / "scripts/start.sh"
 
 # Open *.sublime-project files at the same level as the source/ dir
@@ -34,10 +36,10 @@ assert project_dir.exists(), f"{project_dir} does not exist"
 os.chdir(project_dir)
 
 if args.dev or args.start_all:
-    if dev_env_file.exists():
+    if dev_tools_file.exists():
         print("Launching dev environment...")
         subprocess.Popen(
-            dev_env_file,
+            dev_tools_file,
             stdout=sys.stdout,
             stderr=sys.stderr,
         ).wait()
