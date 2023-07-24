@@ -19,5 +19,3 @@ alias df="project dotfiles"
 alias hs="project HomeServer"
 alias nb="project NicolasBouliane"
 alias tl="project Timeline"
-
-alias beep="afplay /System/Library/Sounds/Blow.aiff -v 10"
