@@ -29,6 +29,10 @@ function project {
     python3 "$PATH_TO_SCRIPT_DIR/../scripts/project.py" "$@"
 }
 
+function serve {
+    python3 -m http.server 9000 -d $1
+}
+
 # Usage:
 # `webclip screencap.mov output.mp4`
 function webclip {
