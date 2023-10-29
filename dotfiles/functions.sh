@@ -36,7 +36,7 @@ function project {
 }
 
 function serve {
-    python3 -m http.server 9000 -d $1
+    python3 -m http.server 9000 -d "$1"
 }
 
 # Usage:
