@@ -35,6 +35,12 @@ function project {
     python3 "$PATH_TO_SCRIPT_DIR/../scripts/project.py" "$@"
 }
 
+# Usage
+# `ocr [path]`
+function ocr {
+    python3 "$PATH_TO_SCRIPT_DIR/../scripts/ocr.py" "$@"
+}
+
 function serve {
     python3 -m http.server 9000 -d "$1"
 }
