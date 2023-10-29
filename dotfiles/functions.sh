@@ -23,6 +23,12 @@ function proxy {
     fi
 }
 
+function journal {
+    journal_file=/Users/nicolas/Documents/Artefacts/Journal/`date +"%Y-%m-%d"`.md
+    touch $journal_file
+    subl $journal_file
+}
+
 # Usage:
 # `project HomeServer`
 function project {
