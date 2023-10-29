@@ -11,6 +11,9 @@ chmod 600 ~/.ssh/config
 # Hide the “default interactive shell is now zsh” warning on macOS.
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# Build Mac M1 docker images by default
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
 
