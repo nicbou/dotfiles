@@ -30,8 +30,8 @@ for filename in filenames:
     try:
         result = ocrmypdf.ocr(filename, filename, deskew=True)
     except PriorOcrFoundError:
-        logging.warn("Skipped document because it already contained text")
+        logging.warning("Skipped document because it already contained text")
     except EncryptedPdfError:
-        logging.warn("Skipped document because it's encrypted'")
+        logging.warning("Skipped document because it's encrypted'")
     except DigitalSignatureError:
-        logging.warn("Skipped document because it has a digital signature'")
+        logging.warning("Skipped document because it has a digital signature'")
