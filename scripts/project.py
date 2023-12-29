@@ -12,6 +12,8 @@ PROJECTS_DIR = Path('~/Documents/Projects').expanduser()
 parser = argparse.ArgumentParser(description='Switch between projects')
 
 parser.add_argument("project_name", help="The name of the directory containing the project")
+
+parser.add_argument('subdir', type=Path, nargs='?', help="move into the specified subdirectory of the project")
 parser.add_argument('-S', '--start-all', help="start the project and launch the development environment", action="store_true")
 parser.add_argument('-s', '--start', help="start the project", action="store_true")
 parser.add_argument('-k', '--kill-others', help="kill other Docker containers before starting the project", action="store_true")
@@ -33,7 +35,10 @@ except StopIteration:
     sublime_project_file = None
 
 assert project_dir.exists(), f"{project_dir} does not exist"
-os.chdir(project_dir)
+if args.subdir:
+    os.chdir(project_dir / args.subdir)
+else:
+    os.chdir(project_dir)
 
 if args.dev or args.start_all:
     if dev_tools_file.exists():
