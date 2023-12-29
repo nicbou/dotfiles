@@ -7,6 +7,11 @@ __pycache__
 .DS_Store
 Desktop.ini
 
+# Project files
+.obsidian
+*.sublime-project
+*.sublime-workspace
+
 # Thumbnail cache files
 ._*
 Thumbs.db
