@@ -25,7 +25,7 @@ function proxy {
 
 function journal {
     journal_dir=/Users/nicolas/Documents/Artefacts/Journal/
-    journal_file=${journal_dir}`date +"%Y-%m-%d"`.md
+    journal_file=${journal_dir}`date +"%Y-%m-%d"`.diary.md
     touch $journal_file
     subl --project $journal_dir/journal.sublime-project $journal_file
 }
