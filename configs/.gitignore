@@ -8,6 +8,7 @@ __pycache__
 Desktop.ini
 
 # Project files
+.env
 .obsidian
 *.sublime-project
 *.sublime-workspace
