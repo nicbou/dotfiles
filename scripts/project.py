@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 from pathlib import Path
-from shlex import quote
 import argparse
 import os
 import subprocess
@@ -110,5 +109,8 @@ if args.start or args.start_all:
         else:
             raise Exception(error_message)
 
+# Set iTerm tab title
+print(f'\033]0;{args.project_name}\007')
+
 # We can't change the cwd of the parent shell, so we start another shell in that directory
-os.system('bash -l')
+os.system('bash -l;')
