@@ -51,3 +51,11 @@ function serve {
 function webclip {
     ffmpeg -an -i "$1" -vf "scale='min(1200,iw)':-2" -vcodec libx264 -pix_fmt yuv420p -profile:v baseline -level 3 "$2"
 }
+
+
+function release-to-pypi {
+    rm -rf dist/*
+    python3 -m build
+    twine check dist/*
+    twine upload dist/*
+}
