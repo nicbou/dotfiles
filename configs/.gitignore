@@ -2,6 +2,7 @@
 *.pyc
 __pycache__
 .pytest_cache
+*.egg-info
 
 # Folder view configuration files
 .DS_Store
@@ -12,6 +13,9 @@ Desktop.ini
 .obsidian
 *.sublime-project
 *.sublime-workspace
+
+# Data
+*.db
 
 # Thumbnail cache files
 ._*
