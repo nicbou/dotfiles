@@ -2,7 +2,7 @@
 """
 OCR a given PDF or the PDFs in a given directory. The OCR data is added to the files.
 """
-from ocrmypdf.exceptions import PriorOcrFoundError, EncryptedPdfError, DigitalSignatureError
+from ocrmypdf.exceptions import PriorOcrFoundError, EncryptedPdfError, DigitalSignatureError, TaggedPDFError
 from pathlib import Path
 import logging
 import ocrmypdf
@@ -32,6 +32,8 @@ for filename in filenames:
     except PriorOcrFoundError:
         logging.warning("Skipped document because it already contained text")
     except EncryptedPdfError:
-        logging.warning("Skipped document because it's encrypted'")
+        logging.warning("Skipped document because it's encrypted")
     except DigitalSignatureError:
-        logging.warning("Skipped document because it has a digital signature'")
+        logging.warning("Skipped document because it has a digital signature")
+    except TaggedPDFError:
+        logging.warning("Skipped document because it's marked as a tagged PDF")
