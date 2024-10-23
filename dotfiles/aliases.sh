@@ -2,6 +2,7 @@
 
 alias dcd="docker-compose down"
 alias dce="docker-compose exec"
+alias dcr="docker-compose restart"
 alias dcl="docker-compose logs -f"
 alias dcmp=docker-compose
 alias dcps="docker-compose ps"
