@@ -24,3 +24,6 @@ ENV_FILE=scripts/env.sh
 if [ -f "$ENV_FILE" ]; then
     . $ENV_FILE
 fi
+
+# Enable mise
+eval "$(/opt/homebrew/bin/mise activate)"
