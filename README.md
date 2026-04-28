@@ -24,6 +24,8 @@ Opens a specific project, starting the project and development environment if ne
 
 `-S` is the same as `-sdk`.
 
+`projects` lists all projects
+
 ### The `alert` command
 
 `alert "Hello world"`

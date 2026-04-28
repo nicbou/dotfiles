@@ -29,6 +29,10 @@ function project {
     python3 "$PATH_TO_SCRIPT_DIR/../scripts/project.py" "$@"
 }
 
+function projects {
+    ls -1 ~/Documents/Projects
+}
+
 # Usage
 # `ocr [path]`
 function ocr {

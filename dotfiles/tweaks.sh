@@ -17,8 +17,6 @@ shopt -s histappend;
 # Make nano the default editor
 export EDITOR='nano';
 
-export DOCKER_BUILDKIT=0;
-
 # Load local environment variables
 ENV_FILE=scripts/env.sh
 if [ -f "$ENV_FILE" ]; then
