@@ -1,0 +1,3 @@
+argcomplete==3.6.3
+markdown==3.7
+ocrmypdf==17.4.2
