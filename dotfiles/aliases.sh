@@ -9,12 +9,6 @@ alias dcps="docker compose ps"
 alias dcubd="docker compose up --build -d"
 alias dcubdl="docker compose up --build -d && docker compose logs -f"
 
-alias gits="git status"
-alias gitd="git diff"
-alias gitc="git commit"
-
-alias touchbar="sudo killall TouchBarServer"
-
 alias aab="project AllAboutBerlin"
 alias df="project dotfiles"
 alias hs="project HomeServer"
