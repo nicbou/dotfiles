@@ -1,6 +1,6 @@
 # Dotfiles
 
-Useful scripts and configs for my Macbook.
+Useful scripts and configs
 
 ## Overview
 
@@ -12,17 +12,9 @@ Useful scripts and configs for my Macbook.
 
 ### The `project` command
 
-`project [-h] [-s] [-d] project_name`
+`project [project_name]`
 
-Opens a specific project, starting the project and development environment if needed. Call `project -h` for more information.
-
-`-d` will run `./scripts/dev-env.sh` if it exists. This is meant to start the dev environment (text editor, IDE, etc.)
-
-`-s` starts the project if it has a `docker-compose.yml` file.
-
-`-k` will kill other running Docker containers before starting the project.
-
-`-S` is the same as `-sdk`.
+Sets the directory to a specific project. Press tab to autocomplete `[project_name]` See `project -h` for more information.
 
 `projects` lists all projects
 
