@@ -1,15 +1,25 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import argcomplete
 import argparse
 import os
 
 PROJECTS_DIR = Path("~/Documents/Projects").expanduser()
 
+
+def project_name_completer(prefix, **kwargs):
+    return [
+        entry.name
+        for entry in PROJECTS_DIR.iterdir()
+        if entry.is_dir() and entry.name.startswith(prefix)
+    ]
+
+
 parser = argparse.ArgumentParser(description="Switch between projects")
 
 parser.add_argument(
     "project_name", help="The name of the directory containing the project"
-)
+).completer = project_name_completer
 
 parser.add_argument(
     "subdir",
@@ -18,6 +28,7 @@ parser.add_argument(
     help="move into the specified subdirectory of the project",
 )
 
+argcomplete.autocomplete(parser)
 args = parser.parse_args()
 
 project_dir = PROJECTS_DIR / args.project_name / "source"

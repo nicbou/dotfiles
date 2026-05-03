@@ -16,8 +16,6 @@ Useful scripts and configs
 
 Sets the directory to a specific project. Press tab to autocomplete `[project_name]` See `project -h` for more information.
 
-`projects` lists all projects
-
 ### The `alert` command
 
 `alert "Hello world"`
