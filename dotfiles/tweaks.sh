@@ -14,8 +14,8 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 # Append to the Bash history file, rather than overwriting it
 shopt -s histappend;
 
-# Make nano the default editor
-export EDITOR='nano';
+# Make Sublime Text the default editor
+export EDITOR='subl --wait';
 
 # Load local environment variables
 ENV_FILE=scripts/env.sh
