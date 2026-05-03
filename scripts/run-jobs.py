@@ -7,7 +7,6 @@ Last-run timestamps are stored in ~/.local/share/dotfiles-jobs/<job-name>.last_r
 """
 
 import logging
-import os
 import subprocess
 import sys
 from datetime import datetime
@@ -62,9 +61,8 @@ def job_name(path):
 
 
 def run_job(path):
-    env = {**os.environ, "PATH": "/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin"}
     runner = sys.executable if path.suffix == ".py" else "bash"
-    return subprocess.run([runner, str(path)], capture_output=True, text=True, env=env)
+    return subprocess.run([runner, str(path)], capture_output=True, text=True)
 
 
 def setup_logging():

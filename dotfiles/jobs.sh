@@ -2,7 +2,7 @@
 PATH_TO_SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 
 JOBS_SCRIPT="$(cd "$PATH_TO_SCRIPT_DIR/../scripts" && pwd)/run-jobs.py"
-PYTHON_SCRIPT="/opt/homebrew/bin/python3"
+PYTHON_SCRIPT="$(command -v python3)"
 JOBS_PLIST="$HOME/Library/LaunchAgents/local.dotfiles.run-jobs.plist"
 
 if [ ! -f "$JOBS_PLIST" ]; then

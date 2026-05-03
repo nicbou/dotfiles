@@ -24,7 +24,7 @@ if [ -f "$ENV_FILE" ]; then
 fi
 
 # Enable mise
-eval "$(/opt/homebrew/bin/mise activate)"
+eval "$(${HOMEBREW_PREFIX:-/opt/homebrew}/bin/mise activate bash)"
 
 # Tab-completion for the `project` command (must run after mise puts python3 on PATH)
 eval "$(python3 -c 'import argcomplete; print(argcomplete.shellcode(["project"], shell="bash"))' 2>/dev/null)"

@@ -13,7 +13,7 @@ function alert {
 # `proxy off`
 function proxy {
     is_proxy_on=$(networksetup -getsocksfirewallproxy wi-fi | grep "No")
-    if [ -n "$is_proxy_on" ] | [ "$1" == "on" ]; then
+    if [ -n "$is_proxy_on" ] || [ "$1" == "on" ]; then
         echo "Turning proxy on"
         sudo networksetup -setsocksfirewallproxystate wi-fi on
         ssh -D 9000 -p2200 root@home.nicolasbouliane.com
@@ -27,12 +27,6 @@ function proxy {
 # `project HomeServer`
 function project {
     python3 "$PATH_TO_SCRIPT_DIR/../scripts/project.py" "$@"
-}
-
-# Usage
-# `ocr [path]`
-function ocr {
-    python3 "$PATH_TO_SCRIPT_DIR/../scripts/ocr.py" "$@"
 }
 
 function serve {
