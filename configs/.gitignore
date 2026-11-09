@@ -4,10 +4,20 @@ __pycache__
 .pytest_cache
 *.egg-info
 dist/*
+.venv
+venv
 
 # Folder view configuration files
 .DS_Store
 Desktop.ini
+
+# Editor and tool directories
+.idea
+.vscode
+.claude
+
+# Node
+node_modules
 
 # Project files
 .env
@@ -17,6 +27,7 @@ Desktop.ini
 
 # Data
 *.db
+*.pid
 
 # Thumbnail cache files
 ._*
