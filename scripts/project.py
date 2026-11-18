@@ -3,6 +3,7 @@ from pathlib import Path
 import argcomplete
 import argparse
 import os
+import subprocess
 
 PROJECTS_DIR = Path("~/Documents/Projects").expanduser()
 
@@ -45,6 +46,28 @@ else:
 
 # Set iTerm tab title
 print(f"\033]0;{args.project_name}\007")
+
+if (project_dir / ".git").exists():
+    branch = subprocess.run(
+        ["git", "branch", "--show-current"],
+        cwd=project_dir,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    if branch:
+        if branch in ("master", "main"):
+            message = f"You are on branch {branch}"
+        else:
+            message = f"You are on branch \033[31m{branch}\033[0m"
+        dirty = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=project_dir,
+            capture_output=True,
+            text=True,
+        ).stdout.strip()
+        if dirty:
+            message += ", you have uncommitted changes"
+        print(message)
 
 # We can't change the cwd of the parent shell, so we start another shell in that directory
 os.system("bash -l;")
